@@ -27,10 +27,6 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
     this.x += this.speed * dt;
 
     // if the x position is large than the canvas width
@@ -52,9 +48,6 @@ Enemy.prototype.render = function() {
 };
 
 // Determine whether the enemy has collided with the player.
-// A collision occurs when the enemy and the player are in the
-// same row and column in the grid.
-
 Enemy.prototype.collidesWith = function(player) {
     var colWidth = 101;
     var rowHeight = 101;
@@ -67,7 +60,6 @@ Enemy.prototype.collidesWith = function(player) {
     }
 };
 
-// Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function () {
@@ -79,10 +71,8 @@ var Player = function () {
     this.startRow = 5;
     this.col = this.startCol;
     this.row = this.startRow;
-
     // Constant values to convert row, column to x, y
-    // Values based on the values in engine.js for
-    // drawing the grid
+    // Values based on the values in engine.js for drawing the grid
     this.columnToXMultiplier = 101;
     this.rowToYMultiplier = 83;
 
@@ -109,9 +99,7 @@ Player.prototype.reset = function() {
     this.row = this.startRow;
 };
 
-// Move the player according to the direction given
-// from the key press. Make sure that the player does
-// not move off the screen.
+// Move the player according to the direction given from the key press. 
 Player.prototype.handleInput = function(direction) {
     switch (direction) {
         case 'left':
